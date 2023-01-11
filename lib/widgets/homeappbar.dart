@@ -3,8 +3,14 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ptvl_moef_book/themedata/theme_controller.dart';
 
-class Homeappbar extends StatelessWidget {
+class Homeappbar extends StatefulWidget {
   Homeappbar({super.key});
+
+  @override
+  State<Homeappbar> createState() => _HomeappbarState();
+}
+
+class _HomeappbarState extends State<Homeappbar> {
   ThemeDataController themeDataController = Get.put(ThemeDataController());
 
   @override
@@ -26,11 +32,6 @@ class Homeappbar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                Icons.sort,
-                color:
-                    box.read("themevalue") ? Color(0xff777777) : Colors.black,
-              ),
               Container(
                 height: screenHeight * 0.040,
                 width: screenWidth * 0.55,
@@ -92,6 +93,7 @@ class Homeappbar extends StatelessWidget {
                 child: Center(
                   child: Icon(
                     Icons.person_pin_circle,
+                    size: 18,
                     color: box.read("themevalue")
                         ? Color(0xff777777)
                         : Colors.black,
@@ -100,9 +102,11 @@ class Homeappbar extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  themeDataController.isDark.value =
-                      !themeDataController.isDark.value;
-                  box.write('themevalue', themeDataController.isDark.value);
+                  setState(() {
+                    themeDataController.isDark.value =
+                        !themeDataController.isDark.value;
+                    box.write('themevalue', themeDataController.isDark.value);
+                  });
                 },
                 child: Container(
                   height: screenHeight * 0.090,
@@ -128,6 +132,7 @@ class Homeappbar extends StatelessWidget {
                   child: Center(
                       child: Icon(
                     Icons.dark_mode,
+                    size: 18,
                     color: box.read("themevalue") ? Colors.white : Colors.black,
                   )),
                 ),
@@ -155,6 +160,7 @@ class Homeappbar extends StatelessWidget {
                 child: Center(
                     child: Icon(
                   Icons.person_pin_circle,
+                  size: 18,
                   color:
                       box.read("themevalue") ? Color(0xff777777) : Colors.black,
                 )),

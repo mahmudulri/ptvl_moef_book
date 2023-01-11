@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ptvl_moef_book/themedata/theme_controller.dart';
 
-class DemoPage extends StatelessWidget {
-  DemoPage({super.key});
-
-  ThemeDataController themeDataController = Get.put(ThemeDataController());
+class Demopage extends StatefulWidget {
+  const Demopage({super.key});
 
   @override
+  State<Demopage> createState() => _DemopageState();
+}
+
+class _DemopageState extends State<Demopage> {
+  bool change_color = false;
   Widget build(BuildContext context) {
-    return Obx(() => Scaffold(
-          body: Center(
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Container(
-                  height: 100,
-                  width: 100,
-                  color: themeDataController.isDark.value
-                      ? Colors.black
-                      : Colors.yellow,
-                  child: Text("Demo Page")),
-            ),
-          ),
-        ));
+    return Scaffold(
+      backgroundColor: change_color == true ? Colors.green : Colors.red,
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Change Color'),
+          onPressed: () {
+            setState(() {
+              change_color = !change_color;
+            });
+          },
+        ),
+      ),
+    );
   }
 }

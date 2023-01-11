@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:ptvl_moef_book/views/homepage.dart';
+import 'package:ptvl_moef_book/views/demopage.dart';
+
 import 'package:ptvl_moef_book/views/login_page/login_page.dart';
-import 'package:ptvl_moef_book/widgets/homeappbar.dart';
 
 void main() async {
   await GetStorage.init();

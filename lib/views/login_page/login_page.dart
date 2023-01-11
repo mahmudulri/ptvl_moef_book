@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ptvl_moef_book/views/homepage.dart';
+import 'package:ptvl_moef_book/views/bottomnav/bottomnavpage.dart';
+import 'package:ptvl_moef_book/views/home/homepage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -51,16 +52,6 @@ class LoginPage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 40,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => Homepage());
-                    },
-                    child: Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                      size: 40,
-                    ),
                   ),
                   Text(
                     "শুরু করতে লগইন করুন ",
@@ -118,21 +109,26 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    width: 250,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Color(0xff27AE60),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Center(
-                        child: Text(
-                          "লগইন",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => BottomNavPage());
+                    },
+                    child: Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color(0xff27AE60),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Center(
+                          child: Text(
+                            "লগইন",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
                           ),
                         ),
                       ),
