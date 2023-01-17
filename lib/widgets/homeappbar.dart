@@ -61,7 +61,17 @@ class _HomeappbarState extends State<Homeappbar> {
                         Icons.search,
                         color: Color(0xff777777),
                       ),
-                      Spacer(),
+                      Container(
+                        width: 160,
+                        height: screenHeight * 0.040,
+                        // color: Colors.green,
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
                       Icon(
                         Icons.filter_list,
                         color: Color(0xff777777),

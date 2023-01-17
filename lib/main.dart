@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ptvl_moef_book/views/demopage.dart';
-
 import 'package:ptvl_moef_book/views/login_page/login_page.dart';
+import 'package:ptvl_moef_book/views/plain_search/plain_search.dart';
 
 void main() async {
   await GetStorage.init();
@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginPage());
+        home: PlainSearch());
   }
 }
