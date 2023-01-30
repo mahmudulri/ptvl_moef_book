@@ -3,11 +3,14 @@ import 'package:get/get.dart';
 import 'package:ptvl_moef_book/views/bottomnav/bottomnavpage.dart';
 import 'package:ptvl_moef_book/views/home/homepage.dart';
 
+import '../../themedata/theme_controller.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThemeDataController themeDataController = Get.put(ThemeDataController());
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
 

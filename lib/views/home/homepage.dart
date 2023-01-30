@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ptvl_moef_book/themedata/theme_controller.dart';
+import 'package:ptvl_moef_book/utills/constant.dart';
 import 'package:ptvl_moef_book/widgets/homeappbar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({super.key});
@@ -48,13 +50,14 @@ class _HomepageState extends State<Homepage> {
 
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Obx(() => SafeArea(
           child: Scaffold(
-            // drawer: Drawer(
-
-            // ),
+            extendBody: true,
+            drawer: Drawer(),
             appBar: AppBar(
+              backgroundColor: Colors.transparent,
               leading: Icon(
                 Icons.sort,
                 color:
@@ -102,14 +105,18 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'সূচিপত্র',
                         style: GoogleFonts.poppins(
-                            fontSize: screenHeight * 0.020,
+                            fontSize: type == "phone"
+                                ? screenHeight * 0.020
+                                : screenHeight * 0.030,
                             fontWeight: FontWeight.w500,
                             color: Colors.green),
                       ),
                       Text(
                         'সব দেখুন ',
                         style: GoogleFonts.poppins(
-                          fontSize: screenHeight * 0.015,
+                          fontSize: type == "phone"
+                              ? screenHeight * 0.015
+                              : screenHeight * 0.025,
                           fontWeight: FontWeight.w500,
                           color: box.read("themevalue")
                               ? Colors.white
@@ -176,7 +183,9 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'সাম্প্রতিক দেখা',
                         style: GoogleFonts.poppins(
-                            fontSize: screenHeight * 0.020,
+                            fontSize: type == "phone"
+                                ? screenHeight * 0.020
+                                : screenHeight * 0.030,
                             fontWeight: FontWeight.w500,
                             color: Colors.green),
                       ),
@@ -295,9 +304,12 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'ক্যাটেগরি',
                         style: GoogleFonts.poppins(
-                            fontSize: screenHeight * 0.020,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.green),
+                          fontSize: type == "phone"
+                              ? screenHeight * 0.018
+                              : screenHeight * 0.025,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.green,
+                        ),
                       ),
                     ],
                   ),
@@ -315,7 +327,9 @@ class _HomepageState extends State<Homepage> {
                         width: 1,
                       ),
                     ),
-                    height: screenHeight * 0.050,
+                    height: type == "phone"
+                        ? screenHeight * 0.050
+                        : screenHeight * 0.060,
                     child: DropdownButton<String>(
                       dropdownColor:
                           box.read("themevalue") ? Colors.black : Colors.white,
@@ -332,7 +346,10 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       value: categoriesName,
-                      icon: Icon(Icons.arrow_downward),
+                      icon: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(FontAwesomeIcons.chevronDown),
+                      ),
                       iconSize: 20,
                       isExpanded: true,
                       underline: SizedBox(),
@@ -374,7 +391,9 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'সাব ক্যাটেগরি',
                         style: GoogleFonts.poppins(
-                            fontSize: screenHeight * 0.020,
+                            fontSize: type == "phone"
+                                ? screenHeight * 0.018
+                                : screenHeight * 0.025,
                             fontWeight: FontWeight.w500,
                             color: Colors.green),
                       ),
@@ -395,7 +414,9 @@ class _HomepageState extends State<Homepage> {
                         width: 1,
                       ),
                     ),
-                    height: screenHeight * 0.050,
+                    height: type == "phone"
+                        ? screenHeight * 0.050
+                        : screenHeight * 0.060,
                     child: DropdownButton<String>(
                       dropdownColor:
                           box.read("themevalue") ? Colors.black : Colors.white,
@@ -412,7 +433,12 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       value: subcategoriesName,
-                      icon: Icon(Icons.arrow_downward),
+                      icon: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          FontAwesomeIcons.chevronDown,
+                        ),
+                      ),
                       iconSize: 20,
                       isExpanded: true,
                       underline: SizedBox(),
@@ -449,7 +475,9 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'প্রাপ্ত ফলাফল ',
                         style: GoogleFonts.poppins(
-                          fontSize: screenHeight * 0.020,
+                          fontSize: type == "phone"
+                              ? screenHeight * 0.020
+                              : screenHeight * 0.030,
                           fontWeight: FontWeight.w500,
                           color: box.read("themevalue")
                               ? Colors.white
@@ -459,7 +487,9 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         '৩ টি ফলাফল পাওয়া গিয়েছে ',
                         style: GoogleFonts.poppins(
-                          fontSize: screenHeight * 0.015,
+                          fontSize: type == "phone"
+                              ? screenHeight * 0.015
+                              : screenHeight * 0.022,
                           fontWeight: FontWeight.w500,
                           color: box.read("themevalue")
                               ? Color(0xff777777)
@@ -500,9 +530,11 @@ class _HomepageState extends State<Homepage> {
                                 width: 5,
                               ),
                               Text(
-                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ).",
+                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ)",
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: type == "phone"
+                                      ? screenHeight * 0.012
+                                      : screenHeight * 0.022,
                                   color: box.read("themevalue")
                                       ? Color(0xff777777)
                                       : Colors.black,
@@ -510,7 +542,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                               Spacer(),
                               Icon(
-                                Icons.arrow_forward_ios,
+                                FontAwesomeIcons.chevronRight,
                                 size: 15,
                                 color: Color(0xff777777),
                               ),
@@ -541,9 +573,11 @@ class _HomepageState extends State<Homepage> {
                                 width: 5,
                               ),
                               Text(
-                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ).",
+                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ)",
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: type == "phone"
+                                      ? screenHeight * 0.012
+                                      : screenHeight * 0.022,
                                   color: box.read("themevalue")
                                       ? Color(0xff777777)
                                       : Colors.black,
@@ -551,7 +585,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                               Spacer(),
                               Icon(
-                                Icons.arrow_forward_ios,
+                                FontAwesomeIcons.chevronRight,
                                 size: 15,
                                 color: Color(0xff777777),
                               ),
@@ -582,9 +616,11 @@ class _HomepageState extends State<Homepage> {
                                 width: 5,
                               ),
                               Text(
-                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ).",
+                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ)",
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: type == "phone"
+                                      ? screenHeight * 0.012
+                                      : screenHeight * 0.022,
                                   color: box.read("themevalue")
                                       ? Color(0xff777777)
                                       : Colors.black,
@@ -592,7 +628,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                               Spacer(),
                               Icon(
-                                Icons.arrow_forward_ios,
+                                FontAwesomeIcons.chevronRight,
                                 size: 15,
                                 color: Color(0xff777777),
                               ),

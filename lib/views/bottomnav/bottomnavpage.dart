@@ -31,7 +31,10 @@ class _BottomNavPageState extends State<BottomNavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      extendBody: true,
+      // backgroundColor: Color(0xff333333),
+      backgroundColor:
+          box.read("themevalue") ? Color(0xff333333) : Colors.white,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(30),

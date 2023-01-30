@@ -6,6 +6,7 @@ class AllDocuemnts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: Center(
         child: Text("All Documents Page"),
       ),

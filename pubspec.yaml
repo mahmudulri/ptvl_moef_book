@@ -40,6 +40,7 @@ dependencies:
   get_storage: ^2.0.3
   flutter_svg: ^1.1.6
   share_plus: ^6.3.0
+  font_awesome_flutter: ^10.3.0
 
 dev_dependencies:
   flutter_test:

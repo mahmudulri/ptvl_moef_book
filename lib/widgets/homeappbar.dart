@@ -20,7 +20,7 @@ class _HomeappbarState extends State<Homeappbar> {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: EdgeInsets.all(10.0),
       child: Container(
         height: screenHeight * 0.060,
         width: screenWidth,
@@ -33,7 +33,7 @@ class _HomeappbarState extends State<Homeappbar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: screenHeight * 0.040,
+                height: screenHeight * 0.060,
                 width: screenWidth * 0.55,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -62,16 +62,18 @@ class _HomeappbarState extends State<Homeappbar> {
                         color: Color(0xff777777),
                       ),
                       Container(
-                        width: 160,
-                        height: screenHeight * 0.040,
+                        width: screenWidth * 0.400,
+                        height: screenHeight * 0.060,
                         // color: Colors.green,
                         child: TextField(
-                          textAlign: TextAlign.center,
+                          // textAlign: TextAlign.center,
                           decoration: InputDecoration(
+                            hintText: "search here",
                             border: InputBorder.none,
                           ),
                         ),
                       ),
+                      Spacer(),
                       Icon(
                         Icons.filter_list,
                         color: Color(0xff777777),
