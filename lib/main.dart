@@ -20,7 +20,6 @@ void main() async {
 
   type = getDeviceType();
 
-
   // class DeviceemeDataController extends GetxController {}
 
   if (type == 'phone') {
@@ -56,11 +55,12 @@ class MyApp extends StatelessWidget {
     // var screenWidth = MediaQuery.of(context).size.width;
 
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: LoginPage());
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: PlainSearch(),
+    );
   }
 }

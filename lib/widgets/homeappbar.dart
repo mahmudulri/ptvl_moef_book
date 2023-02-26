@@ -36,7 +36,8 @@ class _HomeappbarState extends State<Homeappbar> {
                 height: screenHeight * 0.060,
                 width: screenWidth * 0.55,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color:
+                        box.read("themevalue") ? Colors.white24 : Colors.white,
                     borderRadius: BorderRadius.circular(08.0),
                     boxShadow: [
                       BoxShadow(
@@ -70,6 +71,11 @@ class _HomeappbarState extends State<Homeappbar> {
                           decoration: InputDecoration(
                             hintText: "search here",
                             border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: box.read("themevalue")
+                                  ? Colors.white
+                                  : Colors.black,
+                            ),
                           ),
                         ),
                       ),

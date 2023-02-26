@@ -46,6 +46,8 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
+    String text =
+        "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ)";
     final box = GetStorage();
 
     var screenHeight = MediaQuery.of(context).size.height;
@@ -530,11 +532,13 @@ class _HomepageState extends State<Homepage> {
                                 width: 5,
                               ),
                               Text(
-                                "ওজন স্তর ক্ষয়কারী দ্রব্য (নিয়ন্ত্রণ) বিধিমালা, ২০০৪ ( ২০১৪ সংশোধনীসহ)",
+                                text.toString().substring(0, 69),
                                 style: TextStyle(
                                   fontSize: type == "phone"
                                       ? screenHeight * 0.012
-                                      : screenHeight * 0.022,
+                                      : isPortrait
+                                          ? screenWidth * 0.022
+                                          : screenWidth * 0.020,
                                   color: box.read("themevalue")
                                       ? Color(0xff777777)
                                       : Colors.black,
@@ -577,7 +581,9 @@ class _HomepageState extends State<Homepage> {
                                 style: TextStyle(
                                   fontSize: type == "phone"
                                       ? screenHeight * 0.012
-                                      : screenHeight * 0.022,
+                                      : isPortrait
+                                          ? screenWidth * 0.022
+                                          : screenWidth * 0.020,
                                   color: box.read("themevalue")
                                       ? Color(0xff777777)
                                       : Colors.black,
@@ -620,7 +626,9 @@ class _HomepageState extends State<Homepage> {
                                 style: TextStyle(
                                   fontSize: type == "phone"
                                       ? screenHeight * 0.012
-                                      : screenHeight * 0.022,
+                                      : isPortrait
+                                          ? screenWidth * 0.022
+                                          : screenWidth * 0.020,
                                   color: box.read("themevalue")
                                       ? Color(0xff777777)
                                       : Colors.black,
@@ -652,25 +660,29 @@ class _HomepageState extends State<Homepage> {
                       Text(
                         'সকল ডকুমেন্ট ',
                         style: GoogleFonts.poppins(
-                            fontSize: screenHeight * 0.020,
+                            fontSize: type == "phone"
+                                ? screenHeight * 0.020
+                                : screenHeight * 0.030,
                             fontWeight: FontWeight.w500,
                             color: Colors.green),
                       ),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.green,
+                          color: Color(0xff27AE60),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(5.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Text(
                             'সব দেখুন ',
                             style: GoogleFonts.poppins(
-                              fontSize: screenHeight * 0.015,
+                              fontSize: type == "phone"
+                                  ? screenHeight * 0.015
+                                  : screenHeight * 0.020,
                               fontWeight: FontWeight.w500,
                               color: box.read("themevalue")
                                   ? Colors.white
-                                  : Colors.black,
+                                  : Colors.white,
                             ),
                           ),
                         ),
@@ -681,38 +693,49 @@ class _HomepageState extends State<Homepage> {
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 10,
-                    left: 12,
-                    right: 12,
+                    left: 30,
+                    right: 30,
                   ),
                   child: Container(
+                    decoration: BoxDecoration(
+                        // color: Colors.grey,
+                        ),
                     height: 600,
                     width: screenWidth,
-                    // color: Colors.grey,
                     child: GridView.builder(
                       physics: BouncingScrollPhysics(),
-                      itemCount: 6,
+                      itemCount: 20,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
+                        crossAxisCount: isPortrait ? 3 : 5,
                         mainAxisSpacing: 5,
                         crossAxisSpacing: 5,
                       ),
                       itemBuilder: (context, index) {
                         return Container(
-                          // color: Colors.amberAccent,
+                          decoration: BoxDecoration(
+                            color: box.read("themevalue")
+                                ? Colors.black
+                                : Color(0xffF8F8F8),
+                          ),
                           height: 150,
                           width: 200,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              Icon(Icons.home),
                               Image.asset(
                                 "assets/images/book.png",
+                                color: box.read("themevalue")
+                                    ? Colors.white
+                                    : Colors.black,
                               ),
                               SizedBox(
                                 height: 10,
                               ),
                               Text(
                                 "পরিবেশ আইন সংকলন ১০১-২০০",
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 10,
                                   color: box.read("themevalue")
