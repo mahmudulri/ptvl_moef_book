@@ -731,7 +731,7 @@ class _HomepageState extends State<Homepage> {
                                     : Colors.black,
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 5,
                               ),
                               Text(
                                 "পরিবেশ আইন সংকলন ১০১-২০০",
